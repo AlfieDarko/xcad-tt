@@ -28,7 +28,7 @@ import { useState } from "react";
  */
 
 type ResponseData = {
-  price: String;
+  price: string;
 };
 
 interface Props {
@@ -53,6 +53,10 @@ const Home: NextPage<Props> = (props) => {
     if (isBech32(value)) {
       setHexAddress(fromBech32Address(value));
     }
+  };
+
+  const getHexAddress = (): string => {
+    return isBech32(bech32Address) ? hexAddress : "";
   };
 
   return (
@@ -89,7 +93,7 @@ const Home: NextPage<Props> = (props) => {
               <Input
                 fullWidth
                 placeholder="Hex Address"
-                value={isBech32(bech32Address) ? hexAddress : ""}
+                value={getHexAddress()}
               />
             </Grid>
           </Grid>

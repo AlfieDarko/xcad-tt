@@ -13,8 +13,8 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import fetch from "node-fetch";
 
 type ResponseData = {
-  price?: String;
-  error?: String;
+  price?: string;
+  error?: string;
 };
 
 export default async function handler(
